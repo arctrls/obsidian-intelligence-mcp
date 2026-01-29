@@ -24,6 +24,7 @@ repositories {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.ai:spring-ai-bom:${libs.versions.spring.ai.get()}")
+        mavenBom("org.springframework.modulith:spring-modulith-bom:${libs.versions.spring.modulith.get()}")
     }
 }
 
@@ -56,6 +57,7 @@ dependencies {
 
     // Test
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.spring.modulith.starter.test)
     testImplementation(libs.mockk)
     testRuntimeOnly(libs.h2)
     testImplementation(libs.testcontainers.postgresql)

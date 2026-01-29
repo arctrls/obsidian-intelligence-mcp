@@ -3,6 +3,7 @@ spring-boot = "4.0.2"
 kotlin = "2.3.0"
 spring-ai = "2.0.0-M2"
 flexmark = "0.64.8"
+spring-modulith = "2.0.1"
 mockk = "1.14.7"
 testcontainers = "1.21.4"
 
@@ -22,6 +23,7 @@ flexmark-all = { module = "com.vladsch.flexmark:flexmark-all", version.ref = "fl
 jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml" }
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 
+spring-modulith-starter-test = { module = "org.springframework.modulith:spring-modulith-starter-test" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 h2 = { module = "com.h2database:h2" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }

@@ -2,9 +2,9 @@ package com.jazzbach.obsidianintelligence.related
 
 import org.springframework.ai.tool.annotation.Tool
 import org.springframework.ai.tool.annotation.ToolParam
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 
-@Service
+@Component
 class RelatedMcpTool(
     private val findRelatedDocuments: FindRelatedDocuments,
     private val updateRelatedSection: UpdateRelatedSection,

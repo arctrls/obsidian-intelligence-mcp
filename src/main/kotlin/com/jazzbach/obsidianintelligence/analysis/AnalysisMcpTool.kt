@@ -1,9 +1,9 @@
 package com.jazzbach.obsidianintelligence.analysis
 
 import org.springframework.ai.tool.annotation.Tool
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 
-@Service
+@Component
 class AnalysisMcpTool(
     private val analyzeVault: AnalyzeVault
 ) {
