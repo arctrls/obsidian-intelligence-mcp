@@ -5,5 +5,12 @@ data class SearchQuery(
     val topK: Int = 10,
     val similarityThreshold: Double = 0.3,
     val tags: List<String> = emptyList(),
-    val excludePaths: List<String> = emptyList()
+    val excludePaths: List<String> = emptyList(),
+    val searchType: SearchType = SearchType.SEMANTIC
 )
+
+enum class SearchType {
+    SEMANTIC,
+    KEYWORD,
+    HYBRID
+}

@@ -48,6 +48,15 @@ obsidian-intelligence:
   search:
     default-top-k: 10
     similarity-threshold: 0.3
+    hybrid-dense-weight: 0.7
+    hybrid-keyword-weight: 0.3
   related-docs:
     default-top-k: 5
     section-title: "## 관련 문서"
+  duplicate:
+    similarity-threshold: 0.85
+    min-word-count: 50
+  topic:
+    default-top-k: 50
+    similarity-threshold: 0.3
+    min-group-size: 2

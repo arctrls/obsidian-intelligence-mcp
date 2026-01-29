@@ -12,8 +12,8 @@ class SearchMcpTool(
 
     @Tool(
         name = "search-documents",
-        description = "Search Obsidian vault documents using semantic similarity. " +
-                "Returns the most relevant documents matching the query text, ranked by cosine similarity score. " +
+        description = "Search Obsidian vault documents using semantic similarity, keyword matching, or hybrid approach. " +
+                "Returns the most relevant documents matching the query text. " +
                 "Supports filtering by tags and excluding specific paths."
     )
     fun searchDocuments(
@@ -26,14 +26,21 @@ class SearchMcpTool(
         @ToolParam(description = "Comma-separated list of tags to filter results by.", required = false)
         tags: String?,
         @ToolParam(description = "Comma-separated list of path substrings to exclude from results.", required = false)
-        excludePaths: String?
+        excludePaths: String?,
+        @ToolParam(description = "Search type: SEMANTIC (default), KEYWORD, or HYBRID.", required = false)
+        searchType: String?
     ): SearchToolResponse {
+        val resolvedSearchType = searchType?.let {
+            try { SearchType.valueOf(it.uppercase()) } catch (_: IllegalArgumentException) { SearchType.SEMANTIC }
+        } ?: SearchType.SEMANTIC
+
         val searchQuery = SearchQuery(
             text = query,
             topK = topK ?: searchProperties.defaultTopK,
             similarityThreshold = similarityThreshold ?: searchProperties.similarityThreshold,
             tags = tags?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList(),
-            excludePaths = excludePaths?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList()
+            excludePaths = excludePaths?.split(",")?.map { it.trim() }?.filter { it.isNotEmpty() } ?: emptyList(),
+            searchType = resolvedSearchType
         )
 
         val results = searchDocuments.search(searchQuery)
