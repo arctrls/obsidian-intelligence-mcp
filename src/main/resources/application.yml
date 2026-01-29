@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: obsidian-intelligence-mcp
+  datasource:
+    url: jdbc:postgresql://localhost:5432/obsidian_intelligence
+    username: obsidian
+    password: obsidian
+  jpa:
+    hibernate:
+      ddl-auto: update
+  ai:
+    mcp:
+      server:
+        name: obsidian-intelligence
+        version: 0.1.0
+    embedding:
+      transformer:
+        onnx:
+          modelUri: file:models/model.onnx
+        tokenizer:
+          uri: file:models/tokenizer.json
+    vectorstore:
+      pgvector:
+        dimensions: 1024
+        distance-type: cosine
+        index-type: hnsw
+        initialize-schema: true
+
+obsidian-intelligence:
+  vault:
+    path: /vault
+    excluded-dirs:
+      - .obsidian
+      - .trash
+      - .git
+      - ATTACHMENTS
+    file-extensions:
+      - .md
+      - .markdown
+  tagging:
+    max-tags-per-document: 10
+    min-semantic-similarity: 0.3
+    max-topic-tags: 4
+    max-doctype-tags: 1
+    max-source-tags: 1
+    max-pattern-tags: 3
+    max-framework-tags: 2
+  search:
+    default-top-k: 10
+    similarity-threshold: 0.3
+  related-docs:
+    default-top-k: 5
+    section-title: "## 관련 문서"
