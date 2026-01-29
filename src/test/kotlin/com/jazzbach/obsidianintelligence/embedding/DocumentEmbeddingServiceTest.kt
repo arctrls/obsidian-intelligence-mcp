@@ -132,7 +132,7 @@ class DocumentEmbeddingServiceTest {
         }
         // First batch succeeds, second fails
         every { vectorStore.delete(any<List<String>>()) } just Runs
-        every { vectorStore.add(any<List<AiDocument>>()) } just Runs andThen { throw RuntimeException("DB error") }
+        every { vectorStore.add(any<List<AiDocument>>()) } just Runs andThenAnswer { throw RuntimeException("DB error") }
 
         val result = service.syncVault()
 

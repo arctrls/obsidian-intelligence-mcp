@@ -4,7 +4,7 @@ kotlin = "2.3.0"
 spring-ai = "2.0.0-M2"
 flexmark = "0.64.8"
 mockk = "1.14.7"
-testcontainers = "2.0.3"
+testcontainers = "1.21.4"
 
 [libraries]
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
