@@ -7,6 +7,7 @@ services:
       POSTGRES_PASSWORD: obsidian
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
     ports:
       - "5432:5432"
     healthcheck:
@@ -29,8 +30,8 @@ services:
         source: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/jazzbach
         target: /vault
     environment:
-      SPRING_PROFILES_ACTIVE: docker
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/obsidian_intelligence
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/obsidian_intelligence?currentSchema=public
     restart: unless-stopped
 
 volumes:

@@ -57,7 +57,6 @@ dependencies {
 
     // Test
     testImplementation(libs.spring.boot.starter.test)
-    testImplementation(libs.spring.boot.testcontainers)
     testImplementation(libs.spring.modulith.starter.test)
     testImplementation(libs.mockk)
     testRuntimeOnly(libs.h2)

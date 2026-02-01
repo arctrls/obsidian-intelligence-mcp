@@ -1,3 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/obsidian_intelligence?currentSchema=dev
+    username: obsidian
+    password: obsidian
+  jpa:
+    hibernate:
+      ddl-auto: update
+
 obsidian-intelligence:
   vault:
     path: ${VAULT_PATH:./vault}
