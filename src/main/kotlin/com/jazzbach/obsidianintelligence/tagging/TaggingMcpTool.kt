@@ -1,7 +1,7 @@
 package com.jazzbach.obsidianintelligence.tagging
 
-import org.springframework.ai.tool.annotation.Tool
-import org.springframework.ai.tool.annotation.ToolParam
+import org.springaicommunity.mcp.annotation.McpTool
+import org.springaicommunity.mcp.annotation.McpToolParam
 import org.springframework.stereotype.Component
 
 @Component
@@ -10,16 +10,16 @@ class TaggingMcpTool(
     private val batchTagFolder: BatchTagFolder
 ) {
 
-    @Tool(
+    @McpTool(
         name = "tag-document",
         description = "Generate and apply semantic tags to a single Obsidian vault document. " +
                 "Analyzes document content using semantic similarity to suggest appropriate hierarchical tags. " +
                 "Tags follow the vault's category system: Topic, Document Type, Source, Patterns, Frameworks."
     )
     fun tagDocument(
-        @ToolParam(description = "Absolute path to the markdown file to tag.")
+        @McpToolParam(description = "Absolute path to the markdown file to tag.")
         filePath: String,
-        @ToolParam(description = "If true, only preview generated tags without writing to file. Default is false.", required = false)
+        @McpToolParam(description = "If true, only preview generated tags without writing to file. Default is false.", required = false)
         dryRun: Boolean?
     ): TaggingToolResponse {
         val result = tagDocument.tag(filePath, dryRun ?: false)
@@ -37,18 +37,18 @@ class TaggingMcpTool(
         )
     }
 
-    @Tool(
+    @McpTool(
         name = "batch-tag-folder",
         description = "Generate and apply semantic tags to all markdown files in a folder. " +
                 "Processes each file using the same semantic tagging system as tag-document. " +
                 "Can operate recursively on subfolders."
     )
     fun batchTagFolder(
-        @ToolParam(description = "Absolute path to the folder containing markdown files.")
+        @McpToolParam(description = "Absolute path to the folder containing markdown files.")
         folderPath: String,
-        @ToolParam(description = "Whether to process subfolders recursively. Default is true.", required = false)
+        @McpToolParam(description = "Whether to process subfolders recursively. Default is true.", required = false)
         recursive: Boolean?,
-        @ToolParam(description = "If true, only preview generated tags without writing to files. Default is false.", required = false)
+        @McpToolParam(description = "If true, only preview generated tags without writing to files. Default is false.", required = false)
         dryRun: Boolean?
     ): BatchTaggingToolResponse {
         val results = batchTagFolder.tagFolder(

@@ -41,9 +41,11 @@ out/
 .claude/settings.local.json
 
 # Models (large files)
-models/*.onnx
-models/*.bin
-models/tokenizer.json
+models/
+
+# Build artifacts (root level)
+/META-INF/
+/org/
 
 # OS
 .DS_Store

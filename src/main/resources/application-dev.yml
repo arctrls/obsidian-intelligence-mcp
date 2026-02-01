@@ -1,8 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/obsidian_intelligence?currentSchema=dev
+    url: jdbc:postgresql://localhost:5432/obsidian_intelligence
     username: obsidian
     password: obsidian
+    hikari:
+      connection-init-sql: SET search_path TO dev, public
   jpa:
     hibernate:
       ddl-auto: update

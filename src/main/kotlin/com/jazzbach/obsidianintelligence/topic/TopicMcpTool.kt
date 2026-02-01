@@ -1,7 +1,7 @@
 package com.jazzbach.obsidianintelligence.topic
 
-import org.springframework.ai.tool.annotation.Tool
-import org.springframework.ai.tool.annotation.ToolParam
+import org.springaicommunity.mcp.annotation.McpTool
+import org.springaicommunity.mcp.annotation.McpToolParam
 import org.springframework.stereotype.Component
 
 @Component
@@ -10,22 +10,22 @@ class TopicMcpTool(
     private val topicProperties: TopicProperties
 ) {
 
-    @Tool(
+    @McpTool(
         name = "collect-topic",
         description = "Collect and organize documents related to a specific topic from the Obsidian vault. " +
                 "Groups documents by tags, provides statistics (word counts, tag frequency), " +
                 "and suggests related topics based on tag co-occurrence."
     )
     fun collectTopicDocuments(
-        @ToolParam(description = "The topic to search for and collect documents about.")
+        @McpToolParam(description = "The topic to search for and collect documents about.")
         topic: String,
-        @ToolParam(description = "Maximum number of documents to collect. Default is 50.", required = false)
+        @McpToolParam(description = "Maximum number of documents to collect. Default is 50.", required = false)
         topK: Int?,
-        @ToolParam(description = "Minimum similarity threshold (0.0 to 1.0). Default is 0.3.", required = false)
+        @McpToolParam(description = "Minimum similarity threshold (0.0 to 1.0). Default is 0.3.", required = false)
         similarityThreshold: Double?,
-        @ToolParam(description = "Minimum word count filter. Documents below this count are excluded.", required = false)
+        @McpToolParam(description = "Minimum word count filter. Documents below this count are excluded.", required = false)
         minWordCount: Int?,
-        @ToolParam(description = "Comma-separated list of tags to filter by.", required = false)
+        @McpToolParam(description = "Comma-separated list of tags to filter by.", required = false)
         filterTags: String?
     ): TopicToolResponse {
         val request = TopicRequest(

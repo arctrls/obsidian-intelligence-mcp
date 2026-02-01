@@ -1,6 +1,6 @@
 package com.jazzbach.obsidianintelligence.duplicate
 
-import org.springframework.ai.tool.annotation.Tool
+import org.springaicommunity.mcp.annotation.McpTool
 import org.springframework.stereotype.Component
 
 @Component
@@ -8,7 +8,7 @@ class DuplicateMcpTool(
     private val detectDuplicates: DetectDuplicates
 ) {
 
-    @Tool(
+    @McpTool(
         name = "detect-duplicates",
         description = "Detect duplicate or near-duplicate documents in the Obsidian vault. " +
                 "Scans all documents and groups those with high semantic similarity. " +

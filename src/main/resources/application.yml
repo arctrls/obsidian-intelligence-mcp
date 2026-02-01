@@ -1,6 +1,9 @@
 spring:
   application:
     name: obsidian-intelligence-mcp
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.model.transformers.autoconfigure.TransformersEmbeddingModelAutoConfiguration
   docker:
     compose:
       lifecycle-management: start_only
@@ -15,14 +18,14 @@ spring:
     embedding:
       transformer:
         onnx:
-          modelUri: file:models/model.onnx
+          modelUri: file:models/onnx/model.onnx
         tokenizer:
-          uri: file:models/tokenizer.json
+          uri: file:models/onnx/tokenizer.json
     vectorstore:
       pgvector:
         dimensions: 1024
-        distance-type: cosine
-        index-type: hnsw
+        distance-type: COSINE_DISTANCE
+        index-type: HNSW
         initialize-schema: true
 
 obsidian-intelligence:

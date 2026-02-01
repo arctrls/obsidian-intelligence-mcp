@@ -1,7 +1,7 @@
 package com.jazzbach.obsidianintelligence.related
 
-import org.springframework.ai.tool.annotation.Tool
-import org.springframework.ai.tool.annotation.ToolParam
+import org.springaicommunity.mcp.annotation.McpTool
+import org.springaicommunity.mcp.annotation.McpToolParam
 import org.springframework.stereotype.Component
 
 @Component
@@ -11,15 +11,15 @@ class RelatedMcpTool(
     private val relatedDocsProperties: RelatedDocsProperties
 ) {
 
-    @Tool(
+    @McpTool(
         name = "find-related-documents",
         description = "Find documents semantically related to a given Obsidian vault document. " +
                 "Returns a ranked list of similar documents with similarity scores and tags."
     )
     fun findRelatedDocuments(
-        @ToolParam(description = "Absolute path to the target markdown file.")
+        @McpToolParam(description = "Absolute path to the target markdown file.")
         filePath: String,
-        @ToolParam(description = "Maximum number of related documents to return. Default is 5.", required = false)
+        @McpToolParam(description = "Maximum number of related documents to return. Default is 5.", required = false)
         topK: Int?
     ): RelatedDocsToolResponse {
         val results = findRelatedDocuments.findRelated(
@@ -41,15 +41,15 @@ class RelatedMcpTool(
         )
     }
 
-    @Tool(
+    @McpTool(
         name = "update-related-section",
         description = "Add or update a '관련 문서' (Related Documents) section in an Obsidian vault document. " +
                 "Finds semantically related documents and writes wiki-links with similarity scores."
     )
     fun updateRelatedSection(
-        @ToolParam(description = "Absolute path to the target markdown file.")
+        @McpToolParam(description = "Absolute path to the target markdown file.")
         filePath: String,
-        @ToolParam(description = "Maximum number of related documents to include. Default is 5.", required = false)
+        @McpToolParam(description = "Maximum number of related documents to include. Default is 5.", required = false)
         topK: Int?
     ): RelatedSectionToolResponse {
         val result = updateRelatedSection.update(

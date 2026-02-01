@@ -1,6 +1,6 @@
 package com.jazzbach.obsidianintelligence.analysis
 
-import org.springframework.ai.tool.annotation.Tool
+import org.springaicommunity.mcp.annotation.McpTool
 import org.springframework.stereotype.Component
 
 @Component
@@ -8,7 +8,7 @@ class AnalysisMcpTool(
     private val analyzeVault: AnalyzeVault
 ) {
 
-    @Tool(
+    @McpTool(
         name = "analyze-vault",
         description = "Analyze the Obsidian vault to get comprehensive statistics. " +
                 "Returns file counts, word counts, tag frequency analysis, category distribution, " +
