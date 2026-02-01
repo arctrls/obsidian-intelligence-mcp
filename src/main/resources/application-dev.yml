@@ -1,0 +1,3 @@
+obsidian-intelligence:
+  vault:
+    path: ${VAULT_PATH:./vault}

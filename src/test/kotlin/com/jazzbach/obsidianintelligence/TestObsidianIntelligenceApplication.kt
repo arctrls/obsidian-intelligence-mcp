@@ -23,5 +23,5 @@ class TestContainersConfiguration {
 fun main(args: Array<String>) {
     fromApplication<ObsidianIntelligenceApplication>()
         .with(TestContainersConfiguration::class)
-        .run(*args)
+        .run(*args, "--spring.profiles.active=dev")
 }

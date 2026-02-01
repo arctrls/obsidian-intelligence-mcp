@@ -24,7 +24,6 @@ spring:
 
 obsidian-intelligence:
   vault:
-    path: ${VAULT_PATH:/vault}
     excluded-dirs:
       - .obsidian
       - .trash
