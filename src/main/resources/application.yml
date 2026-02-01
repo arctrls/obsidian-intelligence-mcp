@@ -3,7 +3,7 @@ spring:
     name: obsidian-intelligence-mcp
   docker:
     compose:
-      enabled: false
+      lifecycle-management: start_only
   jpa:
     hibernate:
       ddl-auto: none
