@@ -56,7 +56,7 @@ optimum-cli export onnx --model BAAI/bge-m3 models/
 ### 7-4. MCP 엔드포인트 테스트
 ```bash
 # 기동 후 MCP 엔드포인트 확인
-curl http://localhost:8080/mcp
+curl http://localhost:19321/mcp
 ```
 - SSE 또는 Streamable HTTP 응답 확인
 - MCP tool list 요청/응답 확인

@@ -1,3 +1,6 @@
+server:
+  port: 19321
+
 spring:
   application:
     name: obsidian-intelligence-mcp
