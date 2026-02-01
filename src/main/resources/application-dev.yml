@@ -1,4 +1,10 @@
 spring:
+  docker:
+    compose:
+      enabled: true
+      lifecycle-management: start_only
+      skip:
+        in-tests: false
   datasource:
     url: jdbc:postgresql://localhost:5432/obsidian_intelligence?currentSchema=dev
     username: obsidian

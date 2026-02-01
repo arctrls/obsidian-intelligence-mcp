@@ -48,6 +48,9 @@ dependencies {
     // PostgreSQL
     runtimeOnly(libs.postgresql)
 
+    // Docker Compose (dev 환경 자동 기동)
+    implementation(libs.spring.boot.docker.compose)
+
     // Markdown parsing
     implementation(libs.flexmark.all)
 

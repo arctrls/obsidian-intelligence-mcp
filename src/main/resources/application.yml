@@ -1,6 +1,9 @@
 spring:
   application:
     name: obsidian-intelligence-mcp
+  docker:
+    compose:
+      enabled: false
   jpa:
     hibernate:
       ddl-auto: none
