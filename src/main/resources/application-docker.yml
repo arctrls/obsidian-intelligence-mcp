@@ -1,7 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://postgres:5432/obsidian_intelligence
-
-obsidian-intelligence:
-  vault:
-    path: /vault

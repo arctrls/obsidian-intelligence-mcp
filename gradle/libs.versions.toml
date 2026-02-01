@@ -26,6 +26,7 @@ jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-
 spring-modulith-starter-test = { module = "org.springframework.modulith:spring-modulith-starter-test" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 h2 = { module = "com.h2database:h2" }
+spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
 
 [plugins]

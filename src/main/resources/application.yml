@@ -1,13 +1,9 @@
 spring:
   application:
     name: obsidian-intelligence-mcp
-  datasource:
-    url: jdbc:postgresql://localhost:5432/obsidian_intelligence
-    username: obsidian
-    password: obsidian
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
   ai:
     mcp:
       server:
@@ -28,7 +24,7 @@ spring:
 
 obsidian-intelligence:
   vault:
-    path: /vault
+    path: ${VAULT_PATH:/vault}
     excluded-dirs:
       - .obsidian
       - .trash
