@@ -59,7 +59,7 @@ dependencies {
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.spring.modulith.starter.test)
     testImplementation(libs.mockk)
-    testRuntimeOnly(libs.h2)
+    testRuntimeOnly(libs.postgresql)
     testImplementation(libs.testcontainers.postgresql)
 }
 
